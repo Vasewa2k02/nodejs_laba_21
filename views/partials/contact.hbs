@@ -1,0 +1,7 @@
+<a class="contact" 
+{{#if @root.isActive}} 
+    onclick="window.location.href = '/Update/{{id}}'" 
+{{/if}}>
+    <div class="content">{{name}}</div>
+    <div class="content">{{phoneNumber}}</div>
+</a>

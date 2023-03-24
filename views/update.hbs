@@ -1,0 +1,13 @@
+<div class="contacts">
+   {{#each contacts}}
+        {{>contact}}
+    {{/each}}
+</div>
+<div class="update-form">
+  <input class="id" style="display: none;" value="{{contact.id}}">
+  <input class="name" type="text" placeholder="Name" value="{{contact.name}}">
+  <input class="phone-number" type="text" placeholder="Phone number" value="{{contact.phoneNumber}}">
+  <a class="default-link update-link" onclick="updateContact()">Update</a>
+  <a class="default-link delete-link" onclick="deleteContact()">Delete</a>
+  <a class="default-link refuse-link" onclick="{{refuse}}">Refuse</a>
+</div>

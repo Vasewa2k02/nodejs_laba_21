@@ -1,0 +1,167 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: auto;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  margin: 30px auto;
+  padding: 50px;
+  border: 1px solid #110f67;
+  border-radius: 20px;
+}
+
+input[type="button"]:hover,
+button:hover {
+  color: #fff;
+  background-color: #217bf4;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  font-family: "Inter";
+  font-style: normal;
+}
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  height: auto;
+  margin: auto;
+}
+
+.contact {
+  margin: 10px 0;
+  padding: 20px;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #217bf4;
+  border: 1px solid #217bf4;
+  border-radius: 14px;
+  transition: box-shadow, border 0.3s ease-out;
+}
+
+.contact:hover {
+  box-shadow: 0px 26px 49px rgba(146, 165, 184, 0.14);
+  border: 1px solid #0000;
+}
+
+.content {
+  margin: 0 20px;
+}
+
+.default-link {
+  padding: 10px 30px;
+  font-weight: 600;
+  color: #217bf4;
+  border: 1px solid #217bf4;
+  border-radius: 10px;
+  transition: color, background-color 0.3s ease-out;
+}
+
+.default-link:hover {
+  color: #fff;
+  background: #217bf4;
+  box-shadow: 0px 7px 22px -6px rgba(33, 123, 244, 0.34);
+}
+
+.add-form,
+.update-form {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
+.name,
+.phone-number {
+  margin-top: 10px;
+  padding: 20px;
+  padding: 10px;
+  border: 1px solid #217bf4;
+  border-radius: 10px;
+}
+
+.add-link,
+.refuse-link,
+.update-link,
+.delete-link {
+  margin-top: 10px;
+}
