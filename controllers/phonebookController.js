@@ -12,7 +12,7 @@ exports.getAddForm = async function (req, res) {
   res.render("add", {
     contacts: tipaDBclient.getAll(),
     isActive: false,
-    helpers: { refuse: () => "window.location.href='/'" },
+    helpers: { refuse: () => "window.location.href = '/'" },
   });
 };
 
@@ -26,13 +26,16 @@ exports.getUpdateForm = async function (req, res) {
 };
 
 exports.createContact = async function (req, res) {
-  res.json(tipaDBclient.create(req.body));
+  tipaDBclient.create(req.body);
+  res.json();
 };
 
 exports.updateContact = async function (req, res) {
-  res.json(tipaDBclient.update(req.body));
+  tipaDBclient.update(req.body);
+  res.json();
 };
 
 exports.deleteContact = async function (req, res) {
-  res.json(tipaDBclient.delete(req.body));
+  tipaDBclient.delete(req.body);
+  res.json();
 };

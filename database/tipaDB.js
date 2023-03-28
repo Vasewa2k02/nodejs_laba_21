@@ -1,12 +1,9 @@
 const fs = require("fs");
 
 class TipaDB {
-  contacts = [];
-  currentId = 0;
-
   constructor() {
     this.contacts = require("./contacts.json");
-    this.currentId = this.contacts[this.contacts.length - 1]?.id;
+    this.currentId = this.contacts[this.contacts.length - 1]?.id || 0;
   }
 
   getAll() {
@@ -18,20 +15,22 @@ class TipaDB {
   }
 
   create(phoneDto) {
-    if (phoneDto.name === undefined || phoneDto.phoneNumber === undefined) {
-      return null;
+    if (
+      phoneDto.name === undefined ||
+      phoneDto.name === "" ||
+      phoneDto.phoneNumber === undefined ||
+      phoneDto.phoneNumber === ""
+    ) {
+      return;
     }
 
-    const newContact = {
+    this.contacts.push({
       id: ++this.currentId,
       name: phoneDto.name,
       phoneNumber: phoneDto.phoneNumber,
-    };
+    });
 
-    this.contacts.push(newContact);
     this.writeToFile();
-
-    return newContact;
   }
 
   update(phoneDto) {
@@ -41,18 +40,18 @@ class TipaDB {
     contact.phoneNumber = phoneDto.phoneNumber
       ? phoneDto.phoneNumber
       : contact.phoneNumber;
-    this.writeToFile();
 
-    return contact;
+    this.writeToFile();
   }
 
   delete(phoneDto) {
-    const contact = this.contacts.find((contact) => contact.id == phoneDto.id);
-
-    this.contacts.splice(this.contacts.indexOf(contact), 1);
+    this.contacts.splice(
+      this.contacts.indexOf(
+        this.contacts.find((contact) => contact.id == phoneDto.id)
+      ),
+      1
+    );
     this.writeToFile();
-
-    return contact;
   }
 
   writeToFile() {

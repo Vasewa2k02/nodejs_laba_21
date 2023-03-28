@@ -6,9 +6,7 @@ const createContact = () => {
       name: document.getElementsByClassName("name")[0].value,
       phoneNumber: document.getElementsByClassName("phone-number")[0].value,
     }),
-  })
-    .then((res) => res.json())
-    .then(() => (window.location.href = "/"));
+  }).then(() => (window.location.href = "/"));
 };
 
 const updateContact = () => {
@@ -23,9 +21,7 @@ const updateContact = () => {
       name: name ? name : undefined,
       phoneNumber: phoneNumber ? phoneNumber : undefined,
     }),
-  })
-    .then((res) => res.json())
-    .then(() => (window.location.href = "/"));
+  }).then(() => (window.location.href = "/"));
 };
 
 function deleteContact() {
@@ -35,7 +31,16 @@ function deleteContact() {
     body: JSON.stringify({
       id: document.getElementsByClassName("id")[0].value,
     }),
-  })
-    .then((res) => res.json())
-    .then(() => (window.location.href = "/"));
+  }).then(() => (window.location.href = "/"));
 }
+
+const inputName = document.getElementsByClassName("name")[0];
+const inputPhoneNumber = document.getElementsByClassName("phone-number")[0];
+const inputs = [inputName, inputPhoneNumber];
+inputs = inputs.map((input) => {
+  input.addEventListener("input", () => {
+    document.getElementsByClassName(
+      "default-link delete-link"
+    )[0].disabled = true;
+  });
+});
